@@ -8,14 +8,9 @@
 			1) param.데이터이름 
 				- Ex) ${param.NUM}
 			2) param.["데이터이름"]
-				- Ex) ${param.["NUM"]}
+				- Ex) ${param["NUM"]}
 			
  --%>
-<jsp:useBean id="product" class="com.sist.el.Product"></jsp:useBean>
-<%
-	pageContext.setAttribute("num1", product.getNum1());
-	pageContext.setAttribute("num2", product.getNum2());
-%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -26,7 +21,7 @@
 		<h3>EL - 상품선택</h3>
 		<hr/>
 		1. 선택한 상품 : ${param.sel }<br/>
-		2. num1+num2 = ${num1+num2 }<br/>
+		2. num1+num2 = ${product.num1+product.num2 }<br/> <!-- useBean의 scope을 session으로 설정하여 그대로 사용가능 -->
 		<input type="button" value="돌아가기" onclick="javascript:history.back()">
 	</div>
 </body>
