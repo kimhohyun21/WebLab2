@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <jsp:useBean id="product" class="com.sist.el.Product" scope="session"></jsp:useBean>
 <html>
@@ -13,11 +14,14 @@
 			<h3>EL - 상품목록</h3>
 			<hr/>
 			<select name="sel">
-		<%
+		<%--
 			for(String item : product.getProductList()){
 				out.println("<option>"+item+"</option>");
 			}
-		%>
+		--%>
+			<c:forEach items="${product.productList }" var="item">
+				<option>${item }</option>
+			</c:forEach>				
 			</select>
 			<input type="submit" value="선택">
 		</form>
