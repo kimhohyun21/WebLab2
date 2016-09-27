@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans> <!-- beans = class이다. -->
 	<bean id="list" class="com.model.ListModel"></bean>
+	<bean id="insert" class="com.model.InsertModel"></bean>
+	<bean id="content" class="com.model.ContentModel"></bean>
 </beans>

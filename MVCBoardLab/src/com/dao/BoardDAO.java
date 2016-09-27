@@ -58,7 +58,7 @@ public class BoardDAO {
 			int pagecnt=(page*rowSize)-rowSize;
 			
 			while(rs.next()){
-				if(i<rowSize && j>pagecnt){
+				if(i<rowSize && j>=pagecnt){
 					BoardDTO dto=new BoardDTO();
 					
 					dto.setNo(rs.getInt(1));

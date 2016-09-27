@@ -22,6 +22,9 @@ table{
 	border-bottom: 1px solid #666;
 	text-align: center;
 }
+#content_table tr:HOVER {
+	background-color: #d8eefa;
+}
 #content_table tr:NTH-CHILD(odd){
 	background-color: #d8eefa;
 }
@@ -33,4 +36,8 @@ form, select, option{
 }
 a{
 	text-decoration: none;
+	color: black;
+}
+a:HOVER{
+	color: green;
 }
