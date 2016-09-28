@@ -7,19 +7,56 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 	<title>상세보기</title>
+	<link rel="stylesheet" type="text/css" href="board/table.css">
 </head>
 <body>
 	<div align="center">
-		<c:if test="${page==null }">
-			<c:set var="page" value="1"></c:set>
-		</c:if>
-		<c:if test="${page!=null }">
-			<c:set var="page" value="${page }"></c:set>
-		</c:if>
-		<form action="list.do?page=${page }" method="post">
-			<input type="hidden" value="${page }">
-			<input type="submit" value="back">
-		</form>
+		<h3>상세 보기</h3>
+		<table id="content_table">
+			<tr class="cont_tr">
+				<th width="20%">번호</th>
+				<td width="30%">${dto.no }</td>
+				<th width="20%">작성일</th>
+				<td width="30%">${dto.regdate }</td>
+			</tr>
+			<tr class="cont_tr">
+				<th width="20%">이름</th>
+				<td width="30%">${dto.name }</td>
+				<th width="20%">조회수</th>
+				<td width="30%">${dto.hit }</td>
+			</tr>
+			<tr class="cont_tr">
+				<th width="20%">제목</th>
+				<td id="left_td" colspan="3">${dto.subject }</td>
+			</tr>
+			<tr class="cont_tr">
+				<td id="cont" colspan="4">${dto.content }</td>
+			</tr>
+		</table>
+		<table class="button_table">
+			<tr>
+				<td id="right_td">
+					<a href="list.do?page=${page }">
+						<img alt="list button" src="board/img/btn_list.gif">
+					</a>
+					<a href="reply.do?page=${page }&no=${dto.no }">
+						<!-- 
+							reply.do ==request==> DispatcherServlet(controller)
+									 ===========> ReplyModel(처리)
+									 ===========> DispatcherServlet(controller)
+									 ==response=> jsp(view)
+						 -->
+						<img alt="reply button" src="board/img/btn_reply.gif">
+					</a>
+					<a href="modify.do?page=${page }&no=${dto.no }">
+						<img alt="modify button" src="board/img/btn_modify.gif">
+					</a>
+					<a href="delete.do?page=${page }&no=${dto.no }">
+						<img alt="delete button" src="board/img/btn_delete.gif">
+					</a>
+				</td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

@@ -1,22 +1,26 @@
 @CHARSET "EUC-KR";
-table{
+table {
 	font-size: 11pt;	
 }
-#content_table, .button_table{
+#content_table, .button_table, #insert_table {
 	border-collapse: collapse;
 	width: 700px;
 	margin: 0px;
 }
-#content_table{
+#content_table, #insert_table {
 	border-bottom: 2px solid black;
 	border-top: 2px solid black;	
 }
-#content_table th{
+#content_table th, #insert_table th {
 	background-color: #77c4ec;
 	color: #fff;
 	border-bottom: 1px solid #333;
 	text-align: center;
 	font-weight: bolder;
+}
+#insert_table td {
+	border-bottom: 1px solid #666;
+	padding: 5px;
 }
 #content_table td{
 	border-bottom: 1px solid #666;
@@ -25,19 +29,42 @@ table{
 #content_table tr:HOVER {
 	background-color: #d8eefa;
 }
-#content_table tr:NTH-CHILD(odd){
+#content_table tr:NTH-CHILD(odd) {
 	background-color: #d8eefa;
 }
-#content_table #left_td{
-	text-align: left;
+
+#content_table .cont_tr:HOVER {
+	background-color: none;
 }
-form, select, option{
+#content_table .cont_tr {
+	background-color: #d8eefa;
+}
+#content_table #cont {
+	background-color: white;
+	padding: 10px;
+	text-align: left;
+	vertical-align: top;
+	height: 200px;
+}
+#content_table #left_td {
+	text-align: left;
+	padding-left: 10px;
+}
+.button_table #right_td {
+	text-align: right;
+	padding-top: 5px;
+}
+form, select, option {
 	font-weight: bolder;
 }
-a{
+a {
 	text-decoration: none;
 	color: black;
 }
-a:HOVER{
+a:HOVER {
 	color: green;
+}
+img:HOVER {
+	opacity: 0.5;
+	border: 1px solid gray;
 }

@@ -3,4 +3,5 @@
 	<bean id="list" class="com.model.ListModel"></bean>
 	<bean id="insert" class="com.model.InsertModel"></bean>
 	<bean id="content" class="com.model.ContentModel"></bean>
+	<bean id="insert_ok" class="com.model.InsertOkModel"></bean>
 </beans>

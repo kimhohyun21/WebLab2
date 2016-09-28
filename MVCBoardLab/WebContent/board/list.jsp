@@ -51,7 +51,7 @@
 					<font color="red">${dto.subject }</font>
 				</c:if>
 				<c:if test="${dto.subject!=msg }">
-					<a href="content.do?no=${dto.no }&page=${curPage}">
+					<a href="content.do?page=${curPage}&no=${dto.no }">
 						${dto.subject }
 					</a>
 				</c:if>					
@@ -67,7 +67,7 @@
 		</table>
 		<table class="button_table">
 			<tr>
-				<td align="right">
+				<td id="right_td">
 				<!-- 
 					[1][2][3][4][5][6]
 					fp			tp	

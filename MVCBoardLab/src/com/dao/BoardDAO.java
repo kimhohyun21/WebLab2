@@ -138,4 +138,66 @@ public class BoardDAO {
 		
 		return total;
 	}
-}
+	
+	//5. 기능 추가 : 4) 내용보기 ==> SELECT ~ WHERE
+	public BoardDTO boardContentData(int no){
+		BoardDTO dto=new BoardDTO();
+		
+		try{
+			getConnection();
+			
+			//히트수 증가
+			String sql="UPDATE board SET hit=hit+1 WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
+			ps.close();
+			
+			//데이터 읽기
+			sql="SELECT no, name, subject, content, regdate, hit FROM board WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs=ps.executeQuery();
+			rs.next();
+			
+			dto.setNo(rs.getInt(1));
+			dto.setName(rs.getString(2));
+			dto.setSubject(rs.getString(3));
+			dto.setContent(rs.getString(4));
+			dto.setRegdate(rs.getDate(5));
+			dto.setHit(rs.getInt(6));
+			
+			rs.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			disConnection();
+		}
+		
+		return dto;
+	}
+	
+	//5. 기능 추가 : 5) 내용 추가 ==> insert
+	public void boardInsert(BoardDTO dto){
+		try{
+			getConnection();
+			
+			String sql="INSERT INTO board(no, name, subject, content, pwd, group_id) "
+						+ "VALUES((SELECT NVL((MAX(no)+1),1) FROM board), ?, ?, ?, ?, "
+						+ "(SELECT NVL((MAX(group_id)+1),1) FROM board))";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, dto.getName());
+			ps.setString(2, dto.getSubject());
+			ps.setString(3, dto.getContent());
+			ps.setString(4, dto.getPwd());
+			ps.executeUpdate();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			disConnection();
+		}
+	}
+}	
+
