@@ -32,10 +32,6 @@ table {
 #content_table tr:NTH-CHILD(odd) {
 	background-color: #d8eefa;
 }
-
-#content_table .cont_tr:HOVER {
-	background-color: none;
-}
 #content_table .cont_tr {
 	background-color: #d8eefa;
 }
@@ -66,5 +62,16 @@ a:HOVER {
 }
 img:HOVER {
 	opacity: 0.5;
-	border: 1px solid gray;
+	border: 1px solid white;
+}
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="text"],
+input[type="password"],
+select, textarea{
+	-webkit-border-radius: 12px;
+	-mox-border-radius: 12px;
+	border-radius: 12px;
+	border: 1px #CCC solid;
 }

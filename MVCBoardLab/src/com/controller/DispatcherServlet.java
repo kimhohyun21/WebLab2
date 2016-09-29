@@ -96,7 +96,13 @@ public class DispatcherServlet extends HttpServlet{
 			//hadlerRequest 메서드 사용 ==> 요청에 따른 view(jsp)를 받아오기
 			String jsp=model.handlerRequest(request, response);
 			
+			
 			String temp=jsp.substring(jsp.lastIndexOf(".")+1);
+			
+			if(!temp.equals("do") && !temp.equals("jsp")){
+				temp=temp.substring(0, temp.lastIndexOf("?"));
+			}
+			
 			System.out.println(temp);
 			if(temp.equals("do")){
 				response.sendRedirect(jsp);
