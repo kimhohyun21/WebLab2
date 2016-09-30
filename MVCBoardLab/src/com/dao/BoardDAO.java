@@ -1,7 +1,9 @@
 package com.dao;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 
 public class BoardDAO {
 	private Connection conn;
@@ -154,7 +156,7 @@ public class BoardDAO {
 			ps.close();
 			
 			//데이터 읽기
-			sql="SELECT no, name, subject, content, regdate, hit FROM board WHERE no=?";
+			sql="SELECT no, name, subject, content, regdate, hit, depth FROM board WHERE no=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, no);
 			rs=ps.executeQuery();
@@ -166,6 +168,7 @@ public class BoardDAO {
 			dto.setContent(rs.getString(4));
 			dto.setRegdate(rs.getDate(5));
 			dto.setHit(rs.getInt(6));
+			dto.setDepth(rs.getInt(7));
 			
 			rs.close();
 			
@@ -275,6 +278,79 @@ public class BoardDAO {
 			disConnection();
 		}
 		
+	}
+	
+	//4. 기능 추가 : 7) 삭제 ==> delete
+	public boolean boardDelete(int no, String pwd){
+		boolean bCheck=false;
+		
+		try{
+			getConnection();
+			
+			String sql="SELECT pwd FROM board WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs=ps.executeQuery();
+			rs.next();			
+			String dbpwd=rs.getString(1);
+			System.out.println(dbpwd);
+			rs.close();
+			
+			if(dbpwd.equals(pwd)){
+				sql="SELECT root, depth FROM board WHERE no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, no);
+				rs=ps.executeQuery();
+				rs.next();
+				int root=rs.getInt(1);
+				int depth=rs.getInt(2);
+				rs.close();
+				ps.close();
+				
+				if(depth!=0){
+					//댓글이 있으면 그냥 유지
+					String msg="관리자에 의해서 삭제된 게시물입니다.";
+					String name="관리자";
+					String today=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+					sql="UPDATE board SET subject=?, name=?, content=? ,regdate=?, hit=? WHERE no=?";
+					ps=conn.prepareStatement(sql);
+					ps.setString(1, msg);
+					ps.setString(2, name);
+					ps.setString(3, msg);
+					ps.setDate(4, java.sql.Date.valueOf(today));
+					ps.setInt(5, 0);
+					ps.setInt(6, no);
+					ps.executeUpdate();
+					ps.close();
+					
+				}else{
+					//댓글이 없으면 그냥 삭제
+					sql="DELETE FROM board WHERE no=?";
+					ps=conn.prepareStatement(sql);
+					ps.setInt(1, no);
+					ps.executeUpdate();
+					ps.close();				
+				}
+				
+				//부모글의 depth변경
+				sql="UPDATE board SET depth=depth-1 WHERE no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, root);
+				ps.executeUpdate();	
+				
+				bCheck=true;
+			}else{
+				bCheck=false;
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			disConnection();
+		}
+		
+		System.out.println(bCheck);
+		return bCheck;
 	}
 }	
 

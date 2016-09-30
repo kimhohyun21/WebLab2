@@ -54,10 +54,10 @@
 					<a href="content.do?page=${curPage}&no=${dto.no }">
 						${dto.subject }
 					</a>
+					<c:if test="${dto.dbday==today }">
+						<sup><img src="board/img/icon_new (2).gif"></sup>
+					</c:if>	
 				</c:if>					
-				<c:if test="${dto.dbday==today }">
-					<sup><img src="board/img/icon_new (2).gif"></sup>
-				</c:if>	
 				</td>
 				<td width="15%">${dto.name }</td>
 				<td width="20%">${dto.regdate }</td>
