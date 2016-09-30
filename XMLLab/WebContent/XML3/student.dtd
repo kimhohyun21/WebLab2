@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	# DTD(Document Type Definition) : 문서의 구조를 정의하기 위한 문서임.
+		4. 속성 선언 ==> DB 대용으로 사용 가능
+			1) 개념
+				- 요소를 선언하고 속성을 정의하여 사용
+				- 요소와 관련된 속성이름, 속성 타입, 속성 기본값 등을 정의하여 선언하는 
+			
+			2) 형식
+				<!ATTLIST 요소이름 속성이름 속성타입 속성_기본값 데이터_기본값> 
+				==> 공백은 구분용 한 단위당 공백은 허용하지 않음
+-->
+<!--
+	# DTD 속성 형식 예시
+		<!ELEMENT> 태그
+		<!ATTLIST 태그명 속성명 데이터형 제약조건> 
+						   ============ 
+						   1. 데이터 형의 종류
+						   	  	1) ID : PRIMARY KEY
+						   	  	2) IDREF : FOREIGN KEY
+						   		3) CDATA : 문자열 (공백 포함)
+						   		4) NOTATION :  문자열 (공백을 사용할 수 없음) 
+						   
+						   2. 제약조건	
+						   		1) REQUIRED : NOT NULL
+						   		2) IMPLIED : NULL
+						   		3) FIXED : DEFAULT
+
+
+	
+	# XML 선언 예시
+		
+		<student>
+			<list hakbun="">
+				<name></name>
+				<subject></subject>
+				<kor></kor>
+				<math></math>
+				<eng></eng>
+				<pro name=""/><br/><img/>
+			</list>
+		</student>						
+-->
+<!-- 요소 설계 -->
+<!ELEMENT student (list+)>
+<!ELEMENT list (name, subject, kor, math, eng, pro?, year)>
+<!ATTLIST list hakbun ID #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT subject (#PCDATA)>
+<!ELEMENT kor (#PCDATA)>
+<!ELEMENT math (#PCDATA)>
+<!ELEMENT eng (#PCDATA)>
+<!ELEMENT pro EMPTY> <!-- <a/> Empty 태그 -->
+<!ATTLIST pro name CDATA #IMPLIED>
+<!ELEMENT year EMPTY>
+<!ATTLIST year value CDATA #FIXED "6학년"> 
+
+
+

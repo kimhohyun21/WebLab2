@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sawon SYSTEM "sawon.dtd">
+<sawon>
+	<list>
+		<sabun>1</sabun>
+		<name>정도전</name>
+		<dept>영업부</dept>
+		<phone>010-3860-7678</phone>
+	</list>
+	<list>
+		<sabun>2</sabun>
+		<name>이성계</name>
+		<dept>기획부</dept>
+		<hp>010-3754-8765</hp>
+	</list>
+	<list>
+		<sabun>3</sabun>
+		<name>이방원</name>
+		<dept>영업부</dept>
+		<phone>010-2864-2658</phone>
+		<addr>서울특별시</addr>
+	</list>
+</sawon>

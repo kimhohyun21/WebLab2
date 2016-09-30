@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE student SYSTEM "student.dtd"> <!-- 형식 : <!DOCTYPE 최상위 태그 SYSTEM "dtd이름.dtd"> -->
+<student>
+	<list hakbun="choi">
+		<name>최영</name>
+		<subject>컴퓨터 공학</subject>
+		<kor>90</kor>
+		<math>92</math>
+		<eng>71</eng>
+		<pro name="선조"/>
+		<year/>
+	</list>
+</student>

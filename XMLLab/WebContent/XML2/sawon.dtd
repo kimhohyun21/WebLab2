@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ # XML 문서는 자유롭게 만들 수 있음.
+   
+ # 파서(parser) : 컴파일러 일부
+ 	- 원시 프로그램의 명령문이나 마크업 태그 등을 임력 받으면 다른 프로그램으로 처리할 수 있게 
+             여러 부분(ex-명사, 동사, 속성, 선택사항 등)으로 나누는 작업을 함. 
+ 	  ==> XML에서는 파서에 의해 나누어진 한 단어를 토큰이라 함.
+      ==> XML에서는 파서가 파싱을 하면서 태그나 요소, 속성들을 분리하고 
+                      특정 DTD에서 정의한 구문 규칙을 잘 따르고 있는지 검증하는 역할을 함.
+
+
+ # DTD(Document Type Definition) : 문서의 구조를 정의하기 위한 문서임.
+ 	1. 역할
+ 		1) 문서 형태를 정의하는 것.
+        2) XML 문서 구조를 명시적을 선언.
+        3) XML 문서가 유효한문서인지 확인하는 데 사용.
+                           
+    2. 요소 선언
+        1) 요소 
+        	- XML 문서의 기본이 되는 논리적 단위.
+            - XML 문서의 모든 내용물은 반드시 요소 안에 포함.
+                              
+        2) 선언형식 
+        	- <!ELEMENT element_name contents>
+                              
+ 	
+
+ 	3. 컨텐츠 구분
+ 		1) 내용 모델 
+ 			- #PCDATA : 요소는 일반 텍스트만 포함
+ 		
+ 		2) 문자 데이터 선언
+ 			- PCDATA는 요소에 문자데이터(텍스트)를 갖는 요소 선언
+ 		
+ 		3) 자식 요소 선언
+ 			- 상위 요소에 포함되어 있는 하위요소 선언
+ 		
+-->
+<!--
+	# XML 구조의 정의
+		1. 태그 선언 방식
+			<!ELEMENT sawon(list)>			<sawon><list>
+			<!ELEMENT table(tr+)>		
+			<!ELEMENT tr(th|td)>
+			
+		2. 태그 선언 부호
+			+ : 선언한 요소를 1번이상 사용할 수 있음(1~n)
+			| : 선택, 앞, 또는 뒤의 요소를 사용
+			* : 여러번 사용 가능(사용하지 않아도 무방) (0~n)
+			? : 선언한 요소를 0번 또는 1번 사용할 수 있음(0~1)
+			def : 반드시 한번만 사용
+	
+	# XML 선언 예시 (트리구조)
+		<sawon>
+			<list> +                ==> 여러번 사용 가능 
+				<sabun></sabun> def ==> 한번만 사용 가능
+				<name></name>   def
+				<dept></dept>   def
+				<phone></phone>  |  ==> 두개 중에 한개 사용가능 
+				<addr></addr>	 ?  ==> 필수 사항은 아님
+			</list>
+			<list>
+	        </list>	
+		</sawon>		
+-->
+<!--요소 선언 -->
+<!ELEMENT sawon (list+)>
+<!ELEMENT list (sabun, name, dept, (phone|hp), addr?)>
+<!ELEMENT sabun (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT dept (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT hp (#PCDATA)>
+<!ELEMENT addr (#PCDATA)>
+
+

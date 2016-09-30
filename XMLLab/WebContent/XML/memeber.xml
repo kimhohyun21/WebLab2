@@ -32,6 +32,77 @@
 			2) 확장된 마크업 언어
 		
 		2. 데이터로써 XML 사용
-			1) XML은 의미 기반 검색이나 지능적 검색에서 원하는 정보를 정확히 찾아줌		 
-							          
+			1) XML은 의미 기반 검색이나 지능적 검색에서 원하는 정보를 정확히 찾아줌
+			
+	
+	 	3. 정형화 : 일정한 형식이나 틀에 맞게 작성한 구조를 말함.
+	 		1) 정형화 문서(well-formed document)
+	 			- 일정한 형식에 맞춰 작성한 문서를 말함.
+   			2) 유효한 XML 문서 
+   				- 일정한 규칙을 별도로 만들어서 그 규칙을 적용한 XML 문서를 말함.
+          		- 유효한 XML 문서는 모두 정형식 XML문서라고 할 수 있음.
+             
+	# DTD(Document Type Definition) 또는 XML 스키마 
+      	: 일정한 규칙을 별도로 정의해서 만든 문서.
+      
+   	# XML 문서 구조   XML 선언
+   		- (DTD/XML-Schema 선언)
+        - (NameSpace 선언)
+       	- XML 태그(요소,속성,데이터)
+             
+	# DTD구성요소 : 태그 + 속성
+         <a>태그
+         <a href=""> 속성
+      
+      1. XML 태그, 속성은 사용자 정의  ==> DTD(표준화),스키마
+      2. HTML : 브라우저 출력용 (고정된 태그)
+         XML : 데이터 저장(데이터베이스용) : 문서용 데이터베이스
+               ================== 오라클을 대체(CRUD)
+               ==> 모든 플랫폼(OS)에 적용이 가능
+               ==> 태그 만드는 방법
+              
+               2-1) 태그 제작 : XML은 문법이 엄격하다.
+                 1.문법
+                    =태그는 알파벳이나 한글로 시작한다.(알파벳은 대소문자를 구분함)
+                     <a> != <A>
+                    =숫자사용이 가능(단앞에 올수 없음)
+                    =공백은 사용할 수 없다< a > (x)
+                    =특수문자를 사용할 수 있다
+                    =예약어는 사용할 수 없다. <xml>
+                    =속성값은 반드시 ""사용한다.
+                 2.구조
+                    <?xml version="1.0"  ?> XML의 시작코드
+                    <태그> 최상위 태그 ==> 계층구조(트리)
+                    <a>
+                       <b>
+                          <c>
+                          </c>
+                       </b>
+                    </a>
+                    </태그>
+                    
+                 태그의 종류
+                    =여는 태그<a>
+                    =닫는 태그</a>
+                    =Empty <a/>
+                 
+           =>속성 만드는 방법
+           =>언어에서 파싱(DOM(CRUD),SAX(ReadOnly))
  -->
+ <member>   <!-- table -->
+    <list>   <!-- Row -->
+       <id>jung</id>   <!-- Column명 --> <!-- 요소 내용 : Parsed Character DATA(PCDADTA) -->
+       <pwd>1234</pwd>
+       <name>정도전</name>
+    </list>
+    <list>   <!-- Row -->
+       <id>lee</id>   <!-- Column명 --> <!-- 요소 내용 : Parsed Character DATA(PCDADTA) -->
+       <pwd>1234</pwd>
+       <name>이성계</name>
+    </list>
+    <list>   <!-- Row -->
+       <id>ha</id>   <!-- Column명 --> <!-- 요소 내용 : Parsed Character DATA(PCDADTA) -->
+       <pwd>1234</pwd>
+       <name>하륜</name>
+    </list>
+ </member>
