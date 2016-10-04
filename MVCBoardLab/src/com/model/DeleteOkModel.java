@@ -21,7 +21,7 @@ public class DeleteOkModel implements Model{
 		
 		request.setAttribute("bCheck", bCheck);
 		request.setAttribute("page", strPage);
-		request.setAttribute("no", strPage);
+		request.setAttribute("no", strNo);
 		
 		return "board/delete_ok.jsp";
 	}
