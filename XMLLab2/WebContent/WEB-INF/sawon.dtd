@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT sawon (list+)>
+<!ELEMENT list (sabun, name, dept, loc, hiredate)>
+<!ELEMENT sabun (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT dept (#PCDATA)>
+<!ELEMENT loc (#PCDATA)>
+<!ELEMENT hiredate (#PCDATA)>
