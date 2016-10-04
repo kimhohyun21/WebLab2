@@ -24,7 +24,7 @@
 			<tr>
 				<td width="10%">${vo.sabun }</td>
 				<td width="15%">${vo.name }</td>
-				<td width="15%">${vo.dept }</td>
+				<td width="15%">${vo.dept }</td> 
 				<td width="20%">${vo.loc }</td>
 				<td width="20%">${vo.hiredate }</td>
 				<td width="20%" align="center">

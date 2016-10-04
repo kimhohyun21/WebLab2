@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sawon>
 	
-	<list>
-		<sabun>2</sabun>
-		<name>이성계</name>
-		<dept>기획부</dept>
-		<loc>성남</loc>
-		<hiredate>2001-09-03</hiredate>
-	</list>
+	
 	<list>
 		<sabun>3</sabun>
 		<name>하륜</name>
