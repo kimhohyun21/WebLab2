@@ -43,7 +43,7 @@ public class BoardDAO {
 			getConnection();
 			
 			//페이지 목록 수 설정
-			int rowSize=10 ;
+			int rowSize=10;
 			int start=(rowSize*page)-(rowSize-1); // 1, 11, 21, 31...
 			int end=rowSize*page; //10, 20, 30...
 			
