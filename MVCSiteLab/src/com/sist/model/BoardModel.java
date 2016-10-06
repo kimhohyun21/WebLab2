@@ -35,6 +35,7 @@ public class BoardModel implements Model{
 		request.setAttribute("curPage", curPage);
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("jsp", "board.jsp");
+		request.setAttribute("board_jsp", "../board/list.jsp");
 		
 		return "main/main.jsp";
 	}
