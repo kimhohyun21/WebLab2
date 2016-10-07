@@ -24,8 +24,8 @@ a{
 }
 
 a:hover{
-	color: #000;
-	text-decoration: underline;
+	color: orange;
+	text-decoration: none;
 }
 
 a:FOCUS{
@@ -126,8 +126,9 @@ li{
 }
 
 #nav ul li a:hover{
-	color: #FFFFFF;
-	text-decoration: underline;
+	color: #ffffff;
+	height: 15px;
+	background-color: #079284;
 }
 #banner{
 	margin : 0 auto;

@@ -10,7 +10,7 @@
 <configuration>
 	<typeAliases>
 		<!-- 모델을 연결해주는 별칭 설정  ==> <mapper>영역에서 전역적으로 사용 가능-->
-		<typeAlias type="com.sist.dao.BoardVO" alias="Board"/>
+		<typeAlias type="com.sist.dao.BoardVO" alias="BoardVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

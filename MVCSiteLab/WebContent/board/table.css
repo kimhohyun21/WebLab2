@@ -1,0 +1,90 @@
+@CHARSET "EUC-KR";
+table {
+	font-size: 11pt;	
+}
+#content_table, .button_table, #insert_table {
+	border-collapse: collapse;
+	width: 700px;
+	margin: 0px;
+	margin: 10px;
+}
+#content_table, #insert_table {
+	border-bottom: 1px solid #c0c0c0;
+	border-top: 1px solid #c0c0c0;
+	box-shadow: 0 1px 6px #685C4C;	
+}
+#content_table th, #insert_table th {
+	background-color: #0AC7B3;
+	color: #fff;
+	border-bottom: 1px solid #c0c0c0;
+	text-align: center;
+	font-weight: bolder;
+}
+#insert_table td {
+	border-bottom: 1px solid #c0c0c0;
+	padding: 5px;
+}
+#content_table td{
+	border-bottom: 1px solid #c0c0c0;
+	text-align: center;
+}
+#content_table tr {
+	background-color: #fff5d9;
+}
+#content_table tr:NTH-CHILD(odd) {
+	background-color: #ffecb9;
+}
+#content_table tr:HOVER {
+	background-color: #98faf0;
+}
+#content_table .cont_tr:NTH-CHILD(odd) {
+	background-color: #fff5d9;
+}
+#content_table .cont_tr:HOVER {
+	background-color: #fff5d9;
+}
+#content_table #cont {
+	background-color: #fff5d9;
+	padding: 10px;
+	text-align: left;
+	vertical-align: top;
+	height: 200px;
+}
+#content_table #left_td {
+	text-align: left;
+	padding-left: 10px;
+}
+.button_table #right_td {
+	text-align: right;
+	padding-top: 5px;
+}
+form, select, option {
+	font-weight: bolder;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+a:HOVER {
+	color: green;
+	text-decoration: none;
+}
+img:HOVER {
+	opacity: 0.5;
+}
+#title{
+	text-align: center;
+	margin: 10px;
+}
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="text"],
+input[type="password"],
+select, textarea{
+	-webkit-border-radius: 12px;
+	-mox-border-radius: 12px;
+	border-radius: 12px;
+	border: 1px #CCC solid;
+	padding: 2px 10px 2px 10px;
+}

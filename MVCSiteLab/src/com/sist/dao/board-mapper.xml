@@ -9,7 +9,7 @@
 	</sql>
 	
 	<!--SQL에서 SELECT 쿼리문과 동일하게 사용 --> 	
-	<select id="boardListData" resultType="Board" parameterType="java.util.Map">
+	<select id="boardListData" resultType="BoardVO" parameterType="java.util.Map">
 		SELECT no, name, subject, regDate, hit, group_tab, num
 		FROM (SELECT no, name, subject, regDate, hit, group_tab, rownum AS num 
 		FROM (SELECT no, name, subject, regDate, hit, group_tab
@@ -20,4 +20,22 @@
 	<select id="boardTotalPage" resultType="int">
 		SELECT CEIL(COUNT(*)/10) FROM replyBoard
 	</select>
+	
+	<update id="boardHitIncrement" parameterType="int">
+		UPDATE replyBoard SET hit=hit+1 <include refid="where-no"></include>
+	</update>
+	
+	<select id="boardContentData" resultType="BoardVO" parameterType="int">
+		SELECT no, name, subject, content, regDate, hit FROM replyBoard 
+		<include refid="where-no"></include>
+	</select>
+	
+	<insert id="boardInsert" parameterType="BoardVO">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			SELECT NVL((MAX(no)+1), 1) FROM replyBoard
+		</selectKey>
+		INSERT INTO replyBoard (no, name, email, subject, content, pwd, group_id) 
+		VALUES (#{no }, #{name }, #{email}, #{subject }, #{content }, #{pwd }, 
+		(SELECT NVL((MAX(group_id)+1), 1) FROM replyBoard))
+	</insert>
 </mapper>

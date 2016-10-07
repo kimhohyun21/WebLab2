@@ -2,4 +2,8 @@
 <beans>
 	<bean id="main" class="com.sist.model.MainModel"/>
 	<bean id="board" class="com.sist.model.BoardModel"/>
+	<bean id="reserve" class="com.sist.model.ReserveModel"/>
+	<bean id="content" class="com.sist.model.ContentModel"/>
+	<bean id="insert" class="com.sist.model.InsertModel"/>
+	<bean id="insert_ok" class="com.sist.model.InsertOkModel"/>
 </beans>

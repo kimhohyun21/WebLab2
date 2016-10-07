@@ -67,4 +67,27 @@ public class BoardDAO {
 		
 		return total;
 	}
+	
+	public static BoardVO contentData(int no){
+		SqlSession session=ssf.openSession();
+		
+		//조회수 증가
+		session.update("boardHitIncrement", no);
+		session.commit(); //commit은 이쪽에서 완료
+		
+		//vo불러오기
+		BoardVO vo=session.selectOne("boardContentData", no) ;
+		session.close(); // 사용 후 세션 종료
+		
+		return vo;		
+	}
+	
+	public static void boardinsert(BoardVO vo){
+		SqlSession session=ssf.openSession();
+		
+		//vo입력하기
+		session.insert("boardInsert", vo);
+		session.commit();
+		session.close();
+	}
 }

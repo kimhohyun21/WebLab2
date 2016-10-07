@@ -1,5 +1,6 @@
 package com.sist.model;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,8 @@ public class BoardModel implements Model{
 		map.put("start", start);
 		map.put("end", end);
 		
+		String today=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		
 		//static으로 정의한 dao 메소드로 list 불러오기
 		List<BoardVO> list=BoardDAO.boardListData(map);
 		
@@ -34,9 +37,10 @@ public class BoardModel implements Model{
 		request.setAttribute("list", list);
 		request.setAttribute("curPage", curPage);
 		request.setAttribute("totalPage", totalPage);
+		request.setAttribute("today", today);
 		request.setAttribute("jsp", "board.jsp");
 		request.setAttribute("board_jsp", "../board/list.jsp");
-		
+
 		return "main/main.jsp";
 	}
 
