@@ -8,8 +8,6 @@ public class FileConfig {
 		List<String> list=new ArrayList<>();
 		
 		try{
-			
-		}catch(Exception e){
 			String path="C:\\webProjects\\webLab2\\MVCAnnoLab\\src\\";
 			path=path+pack.replace(".", "\\");
 			//path="C:\webProjects\webLab2\MVCAnnoLab\src\com\sist\model";
@@ -21,12 +19,13 @@ public class FileConfig {
 			for(File file : files){
 				String name=file.getName(); // A.java
 				String ext=name.substring(name.lastIndexOf(".")+1); //java
-				
 				if(ext.equals("java")){
 					String clsName=pack+"."+name.substring(0, name.lastIndexOf(".")); //com.sist.model.A, B, C
-					list.add(clsName);
+					list.add(clsName);					
 				}
 			}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 		
 		return list;

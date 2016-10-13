@@ -18,7 +18,7 @@ package com.sist;
  *  	1) 어노테이션 적용 대상 
  *  		: 코드상에서 어노테이션을 적용할 수 있는 대상
  *  		  java.lang.annotation.ElementType에 열거 상수로 정의
- *  			- TYPE : 
+ *  			- TYPE : class, interface 등
  *  			- FILED : 필드
  *  			- CONSTRUCTOR : 생성자
  *  			- METHOD : 메서드

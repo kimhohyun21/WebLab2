@@ -1,0 +1,38 @@
+@CHARSET "EUC-KR";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+*{
+	margin: 0px;
+	padding: 0px;
+	
+}
+
+body{
+	font-family: ¸¼Àº °íµñ;
+	font-weight: 300;
+	line-height: 1.42em;
+	color: #A7A1AE;
+	background-color: #ffffff;
+}
+
+#header{
+	height: 200px;
+	background-color: #fcdcab;
+}
+#header h3{
+	font-size: 30pt; 
+	position: relative;
+	top: 40%;
+}
+#article{
+	min-height: 650px;
+}
+#footer{
+	background-color: #fcdcab;
+	height: 100px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+
