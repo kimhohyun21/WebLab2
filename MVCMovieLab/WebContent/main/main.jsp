@@ -60,7 +60,7 @@
 			</table>
 		</div>
 		<div id="footer">
-			&copy;sist Cinema
+			<span>&copy;sist Cinema</span>
 		</div>
 	</div>
 </body>
