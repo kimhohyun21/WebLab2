@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	# 설정 파일 
+		: 데이터베이스 설정과 트랜잭션 등 마이바티스가 동작하는 규칙을 정의
+	 		==> 매번 DB를 연결하고 해제하는 번거로움을 줄일 수 있음					
+ -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- 모델을 연결해주는 별칭 설정  ==> <mapper>영역에서 전역적으로 사용 가능-->
+		<typeAlias type="com.sist.dao.BoardVO" alias="BoardVO"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@211.238.142.88:1521:ORCL"/>
+				<property name="username" value="scott"/>
+				<property name="password" value="tiger"/>									
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers><!-- dao별로 mapper.xml를 만들고 mapper가 추가될 때마다 여기에 추가 -->
+		<mapper resource="com/sist/dao/board-mapper.xml"/>
+	</mappers>
+</configuration>

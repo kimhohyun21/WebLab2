@@ -1,0 +1,68 @@
+@CHARSET "EUC-KR";
+/* CSS Document*/
+body{
+	margin: 0px;
+	padding: 0px;
+	background: url("http://ww2.sinaimg.cn/mw690/e2213b42jw1f6643e5pxtj200504q0ej.jpg") 0 0 repeat-x #F6F4E4;
+	color: #6B6854;
+	font: 14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+div, h2, form, label{
+	padding: 0px;
+	margin: 0px;
+}
+#mainPan{
+	width: 700px;
+	position: relative;
+	margin: 0, auto;
+	padding : 0px;
+}
+#leftPan{
+	width: 240px;
+	float: left;
+}
+#leftPan h2{
+	width: 150px;
+	height: 40px;
+	color: #8F146E;
+	font-size: 20px;
+	line-height: 63px;
+	padding: 0 20px 0 20px;
+	margin: 0 0 20px 0;
+	font-weight: bold;
+}
+#leftPan form{
+	width: 222px;
+	height: 173px;
+	position: relative;
+	margin: 0 auto;
+	background: url("http://ww4.sinaimg.cn/mw690/e2213b42jw1f661tqyuq9g206604t3y9.gif") 0, 0, no-repeat, #ABA894;
+	color: #fff;
+	float: left;
+}
+#leftPan form input{
+	width: 143px;
+	height: 17px;
+	margin: 3px 0 2px 10px;
+}
+
+#leftPan form label{
+	width: 143px;
+	height: 18px;
+	margin: 2px 0 0 10px;
+	font: 12px/15px Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+#leftPan form input.button{
+	width: 51px;
+	height: 17px;
+	float: right;
+	background: url("http://ww1.sinaimg.cn/mw690/e2213b42jw1f660xn88vag201f00h02b.gif") 0 0 no-repeat #FEFEFE;
+	color:  #fff;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 18px;
+	border: none;
+	padding: 0 10px 0 0;
+	margin: 10px 10px 2px 28px;
+}

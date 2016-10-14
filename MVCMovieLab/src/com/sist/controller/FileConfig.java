@@ -30,7 +30,7 @@ public class FileConfig {
 		List<String> fList=new ArrayList<>();
 		
 		try{
-			String path="C:\\webProjects\\webLab2\\MVCMovieLab\\src\\";			
+			String path="C:\\webProjects\\webLab2\\MVCLoginLab\\src\\";			
 			
 			for(String pack : list){
 				path=path+pack.replace(".", "\\");
@@ -49,7 +49,7 @@ public class FileConfig {
 				}
 			}
 			
-			path="C:\\webProjects\\webLab2\\MVCMovieLab\\src\\";			
+			path="C:\\webProjects\\webLab2\\MVCLoginLab\\src\\";			
 			
 		}catch(Exception e){
 			e.printStackTrace();
